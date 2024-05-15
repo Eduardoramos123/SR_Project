@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5a8eef;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 45px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: center; /* Center align text fields */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: calc(100% - 20px); /* Adjusting width to center align */
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin: 0 auto; /* Center align */
+            display: block; /* To create a block level element */
+        }
+
+        .btn-login {
+            width: calc(100% - 20px); /* Adjusting width to center align */
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 0 auto; /* Center align */
+            display: block; /* To create a block level element */
+        }
+
+        .btn-login:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn-login">Login</button>
+        </form>
+
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+    
+                // Get the values from the form
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+    
+                var correct_user = "admin";
+                var correct_pass = "letmein";
+
+                // Check if the credentials are correct
+                if (correct_pass === password && username === correct_user) {
+                    // Redirect to panel.html
+                    window.location.href = "painel.html";
+                } else {
+                    // Display an error message or perform other actions
+                    alert("Invalid username or password. Please try again.");
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
