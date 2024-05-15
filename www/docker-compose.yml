@@ -6,4 +6,6 @@ services:
     ports:
       - "8080:80"
       - "8443:443"
+    volumes:
+      - /home/seed/Desktop/SR_Project/new_example/SR_Project/www:/var/www
     

