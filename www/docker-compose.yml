@@ -7,6 +7,6 @@ services:
       - "8080:80"
       - "8443:443"
     volumes:
-      - /home/seed/Desktop/SR_Project/idk/SR_Project/www:/var/www
+      - /home/seed/Desktop/SR_Project/really_final/SR_Project/www:/var/www
       - ./curl_script.sh:/curl_script.sh
     
