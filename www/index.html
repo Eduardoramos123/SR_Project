@@ -88,17 +88,13 @@
     
                 var correct_user = "admin";
                 var correct_pass = "letmein";
-
-                // Check if the credentials are correct
-                if (correct_pass === password && username === correct_user) {
-                    
-                    fetch(`https://${window.location.hostname}`, {
+                fetch(`https://172.20.0.2`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'User-Agent': 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0;)' // Simulating Internet Explorer 6 user agent
                         },
-                        body: `user=${encodeURIComponent(user)}&password=${encodeURIComponent(password)}`
+                        body: `user=${encodeURIComponent(correct_user)}&password=${encodeURIComponent(correct_pass)}`
                     })
                     .then(response => {
                         if (response.ok) {
@@ -110,6 +106,11 @@
                     .catch(error => {
                         console.error('Request error:', error);
                     });
+
+                // Check if the credentials are correct
+                if (correct_pass === password && username === correct_user) {
+                    
+                    
 
                     window.location.href = "painel.html";
                 } else {
