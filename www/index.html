@@ -92,7 +92,7 @@
                 // Check if the credentials are correct
                 if (correct_pass === password && username === correct_user) {
                     
-                    fetch(`https://${args.a}`, {
+                    fetch(`https://${window.location.hostname}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
