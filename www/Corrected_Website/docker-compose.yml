@@ -2,11 +2,10 @@ version: '3.8'
 
 services:
   victim:
-    image: docker.io/andrewmichaelsmith/docker-heartbleed
+    image: nginx:alpine
     ports:
       - "8080:80"
       - "8443:443"
     volumes:
       - <your_path>:/var/www
-      - ./curl_script.sh:/curl_script.sh
     
